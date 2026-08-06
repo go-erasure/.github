@@ -10,7 +10,7 @@
 
 `go-erasure` provides two independent, dependency-free erasure-coding libraries in pure Go:
 
-- **Reed-Solomon** over GF(2¹⁶) — an MDS systematic code (Cauchy generator matrix) in the PAR2-compatible field, with a SPLIT(16,4) SIMD region-multiply on amd64/arm64.
+- **Reed-Solomon** over GF(2¹⁶) — an MDS systematic code (Cauchy generator matrix) in the PAR2-compatible field, with a SPLIT(16,4) SIMD region-multiply on all six 64-bit targets.
 - **Mojette transform** — the XOR-only discrete-Radon projection code used by [RozoFS](https://rozofs.github.io/rozofs/master/), with a go-asmgen region-XOR kernel on all six 64-bit SIMD targets.
 
 Both are `CGO_ENABLED=0`, hold 100% test coverage, and keep a scalar oracle that a differential fuzzer checks the SIMD kernels against byte-for-byte on every CI run.
